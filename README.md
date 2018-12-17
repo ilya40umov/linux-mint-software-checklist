@@ -36,13 +36,9 @@ Depending on your Linux distro, you might also want to add more repos to be able
 
 ### Via Aptitude
 
-- `apt install build-essential` - TBD
-- `apt install python3-pip python3-setuptools python3-dev` - TBD
-- `apt install jq finger` - TBD
-- `apt install htop glances powertop sysstat` - TBD
-- `apt install traceroute tcpflow nmap socat` - TBD
-- `apt install git` - TBD
-- `apt install stress siege apache2-utils` - various load testing tools
+- `apt install build-essential` - includes all packages needed to compile a Debian package (e.g. GCC)
+- `apt install python3-pip python3-setuptools python3-dev` - **PIP** for Python 3, as well as other major deps required for installing some Python packages
+- `apt install git` - **Git** - possibly the best version control system out there
 - `apt install guake` - **Guake** - a dropdown terminal that can be shown / hidden with a shortcut
 - `apt install tmux` - **Tmux**, a terminal multiplexer, e.g. allows splitting your terminal into panes
 - `apt install vim-gnome` - **Vim**, a version of Vim that allows yanking/pasting to/from the clipboard (`"+y`/`"+p`)
@@ -55,12 +51,16 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - `apt install nodejs npm` - **Node.js**, a javascript runtime & **npm** for package management
 - `apt install snapd` - **Snappy**, a cross-distro package manager developed by Canonical
 - `apt install yubioath-desktop yubikey-manager-qt yubikey-personalization-gui` - **Yubikey Authenticator**, **Yubikey Manager**, **Yubikey Personalization Tool**, all needed, one way or another, in case if you are using Yubikeys
-- `apt install scdaemon` - TBD
+- `apt install scdaemon` - **Smartcard** daemon for GnuPG (required if you are using Yubikey to store your GPG keys)
 - `apt install wireshark-qt` - **Wireshark**, a GUI for wireshark packet analyzer
 - `apt install virtualbox virtualbox-qt` - **VirtualBox**, software for running VMs
 - `apt install kubectl` - **kubectl**, a CLI for working with k8s clusters
-- `apt install postgresql-client` - TBD
-- `apt install mongodb-clients` - TBD
+- `apt install postgresql-client` - CLI client for **PostgreSQL**
+- `apt install mongodb-clients` - CLI client for **MongoDB**
+- `apt install htop glances powertop sysstat` - monitorying tools
+- `apt install traceroute tcpflow nmap socat` - networking tools
+- `apt install stress siege apache2-utils` - various load testing tools
+- `apt install jq finger` - misc handy utilities
 
 ### Via Flatpak / Snap / NPM / Pip
 
@@ -73,11 +73,21 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - `pip3 install --user s-tui` - **S-TUI**, a cli tool that graps cpu freq, utilization and temperature over time
 - `pip3 install --upgrade --user awscli` - **AWS CLI**, a cli tool to work with Amazon Web Services
 
+### Via SdkMan
+
+- `curl -s "https://get.sdkman.io" | bash` - [SdkMan](https://sdkman.io/) itself
+- `sdk install java`
+- `sdk install gradle`
+- `sdk install maven`
+- `sdk install visualvm`
+- `sdk install springboot`
+
 ### Via other means (e.g. manually)
 
- - VisualVM, Java Mission Control, Eclipse Memory Analyzer, GCViewer
- - Minikube
- - https://github.com/cykerway/complete-alias
- - `curl -s "https://get.sdkman.io" | bash`
+- [Bash Autocomplete For Aliases](https://github.com/cykerway/complete-alias)
+- [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+- [Minikube](https://github.com/kubernetes/minikube)
+- Java Mission Control
+- Eclipse Memory Analyzer
+- GCViewer
 
-If you are developing on Java/Kotlin/Scala and hence require different versions of JDK, as well as Gradle, Maven or SBT, you may want to check out [SdkMan](https://sdkman.io/), which can help you out with this task. Alternativelly, you can try installing multiple JDKs via `apt` and switching between them via `update-java-alternatives` / `update-alternatives`, however I personally didn't get far with this approach because a) to install different versions of java I would end up using PPAs that I was not sure I could trust and b) installing a new JDK would sometimes break a previously installed one.
