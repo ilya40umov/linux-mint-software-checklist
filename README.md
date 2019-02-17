@@ -1,36 +1,45 @@
-# Linux Mint - Software Checklist
+# Linux Mint 19.1 - Software Checklist
 
-This repository contains a checklist of software that I normally install on a fresh Linux Mint system. Please, keep in mind that the list is tailored for software development, and as such does not necessarily represent a regular LM user.
+This repository contains a checklist of software that I normally install on a fresh Linux Mint system. Please, keep in mind that the list is tailored for software development, and as such does not necessarily represent the set-up of a regular LM user.
 
 ## Repos / PPAs
 
+### Mandatory
+
 In order to be able to install and/or get the latest version of the following software, add the repos mentioned below:
 
-- TLP
+- [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html#installation) (a power management tool, hence only makes sense for laptops)
 ```
 sudo add-apt-repository ppa:linrunner/tlp
 ```
-- Yubikey Tools
+- [Yubikey Tools](https://www.yubico.com/products/services-software/download/)
 ```
 sudo add-apt-repository ppa:yubico/stable
 ```
-- kubectl
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-native-package-management)
 ```
 sudo apt-get update && sudo apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+```
+- [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
+```
+echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list > /dev/null
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+```
+
+### Optional
+
+- Chrome
+```
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list > /dev/null
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 ```
 - Vivaldi
 ```
 echo "deb http://repo.vivaldi.com/stable/deb/ stable main" | sudo tee /etc/apt/sources.list.d/vivaldi.list > /dev/null
 wget -q -O - http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
 ```
-- Chrome
-```
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list > /dev/null
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-```
-Depending on your Linux distro, you might also want to add more repos to be able to use the latest versions of the following: Docker, NodeJS, Postgres etc.
 
 ## Software Checklist
 
@@ -45,8 +54,6 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - `apt install direnv` - **Direnv**, unclutter your `.bashrc` by moving environment vars to individual `.envrc` files
 - `apt install docker.io` - **Docker**, software for running containers ~*i.e. the lightweight VMs*~
 - `apt install docker-compose` - **docker-compose**, bring up and tear down multi-container environments
-- `apt install google-chrome-stable` - **Google Chrome**, a free web browser from Google, IMO a bit more stable than Chromium
-- `apt install vivaldi-stable` - **Vivaldi**, a browser that supports grouping multiple web pages in a single tab
 - `apt install tlp tlp-rdw` - **TLP**, a Linux power management tool, must-have on laptops
 - `apt install nodejs npm` - **Node.js**, a javascript runtime & **npm** for package management
 - `apt install snapd` - **Snappy**, a cross-distro package manager developed by Canonical
@@ -55,11 +62,13 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - `apt install wireshark-qt` - **Wireshark**, a GUI for wireshark packet analyzer
 - `apt install virtualbox virtualbox-qt` - **VirtualBox**, software for running VMs
 - `apt install kubectl` - **kubectl**, a CLI for working with k8s clusters
-- `apt install postgresql-client` - CLI client for **PostgreSQL**
+- `apt install pgadmin4 postgis-gui postgresql-client` - various tools for working with **PostgreSQL**
 - `apt install mongodb-clients` - CLI client for **MongoDB**
 - `apt install htop glances powertop sysstat` - monitorying tools
 - `apt install traceroute tcpflow nmap socat` - networking tools
 - `apt install stress siege apache2-utils` - various load testing tools
+- `apt install r-base` - R, statistical computation and graphics system
+- `apt install xclip` - a CLI utility that provides an interface to "the clipboard"
 - `apt install jq finger` - misc handy utilities
 
 ### Via Flatpak / Snap / NPM / Pip
@@ -67,11 +76,14 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - `flatpak install flathub com.skype.Client` or `snap install skype` - **Skype**, a text/voice/video chat app ~pwned~ owned by Microsoft
 - `flatpak install flathub com.slack.Slack` or `snap install slack` - **Slack**, a team colaboration tool, i.e. a text chat on steroids
 - `flatpak install flathub com.spotify.Client` or `snap install spotify` - **Spotify**, a music streaming app by Spotify
+- `flatpak install flathub com.getpostman.Postman` or `snap intall postman` - **Postman**, a graphical tool for API development and testing
+- `flatpak install flathub org.qgis.qgis` - **QGIS**, a desktop geographic information system app
 - `snap install intellij-idea-ultimate --classic`- **Intellij IDEA**, possibly the best IDE for developing any app that is JVM-based, there is also a free community edition with less features
 - `snap install bitwarden` - **BitWarden**, an open source password manager done right (at least from the user perspective)
 - `npm install -g tldr` or `snap install tldr` - **TLDR**, a great collection of simplified man pages, first stop for help on any terminal command
 - `pip3 install --user s-tui` - **S-TUI**, a cli tool that graps cpu freq, utilization and temperature over time
 - `pip3 install --upgrade --user awscli` - **AWS CLI**, a cli tool to work with Amazon Web Services
+- `pip3 install --user locustio` - **Locust.io**, a load testing tool with scenarios written in Python
 
 ### Via SdkMan
 
@@ -87,7 +99,7 @@ Depending on your Linux distro, you might also want to add more repos to be able
 - [Bash Autocomplete For Aliases](https://github.com/cykerway/complete-alias)
 - [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 - [Minikube](https://github.com/kubernetes/minikube)
-- Java Mission Control
-- Eclipse Memory Analyzer
-- GCViewer
-
+- [RStudio](https://www.rstudio.com/products/rstudio/download/)
+- [Java Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/index.html)
+- [Eclipse Memory Analyzer](https://www.eclipse.org/mat/downloads.php)
+- [GCViewer](https://github.com/chewiebug/GCViewer)
