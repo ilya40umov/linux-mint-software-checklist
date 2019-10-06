@@ -91,7 +91,8 @@ sudo apt install virt-manager
 - `pip3 install --user s-tui` - **S-TUI**, a cli tool that graps cpu freq, utilization and temperature over time
 - `pip3 install --upgrade --user awscli` - **AWS CLI**, a cli tool to work with Amazon Web Services
 - `pip3 install --user locustio` - **Locust.io**, a load testing tool with scenarios written in Python
-- `pip install --user powerline-status` - **Powerline**, a statusline plugin for bash, tmux etc.
+- `pip install --user powerline-status` - **Powerline**, a statusline plugin for bash, tmux etc
+- `pip3 install --user powerline-gitstatus` - a Powerline segment for showing the status of a Git working copy
 
 ### Via SdkMan
 
