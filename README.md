@@ -64,6 +64,7 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-ke
 - `apt install r-base` - R, statistical computation and graphics system
 - `apt install xclip` - a CLI utility that provides an interface to "the clipboard"
 - `apt install jq finger` - misc handy utilities
+- `apt install fonts-powerline` - fixed powerline fonts
 
 ### KVM (a hypervisor for Minikube)
 
@@ -90,6 +91,7 @@ sudo apt install virt-manager
 - `pip3 install --user s-tui` - **S-TUI**, a cli tool that graps cpu freq, utilization and temperature over time
 - `pip3 install --upgrade --user awscli` - **AWS CLI**, a cli tool to work with Amazon Web Services
 - `pip3 install --user locustio` - **Locust.io**, a load testing tool with scenarios written in Python
+- `pip install --user powerline-status` - **Powerline**, a statusline plugin for bash, tmux etc.
 
 ### Via SdkMan
 
